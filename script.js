@@ -158,6 +158,27 @@ function markNumbersInCalendar(numbers) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtiene el elemento <span> que contiene la palabra "Blue"
+    const blueSpan = document.querySelector(".blue-span");
+
+    // Variable para rastrear el estado de color actual
+    let isBlue = false;
+
+    // Función para cambiar el color de blueSpan
+    function toggleColor() {
+        if (isBlue) {
+            blueSpan.style.color = "white";
+        } else {
+            blueSpan.style.color = "#5981c6";
+        }
+            isBlue = !isBlue;
+    }
+
+    // Llama a la función toggleColor cada 3 segundos
+    setInterval(toggleColor, 3000);
+});  
+
 // Llamar a la función para leer el archivo al cargar la página
 window.onload = function () {
     readClientFile();
