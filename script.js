@@ -5,7 +5,6 @@ function countdown() {
     const timeDifference = targetDate - currentDate;
 
     if (timeDifference <= 0) {
-        // La fecha objetivo ha pasado, puedes mostrar un mensaje aquí
         document.getElementById("countdown-timer").innerHTML = "<span>00</span>:<span>00</span>:<span>00</span>:<span>00</span>:<span>00</span>";
         return;
     }
@@ -25,24 +24,24 @@ function countdown() {
     const countdownContainer = document.getElementById("countdown-timer");
     countdownContainer.innerHTML = `
         <div class="countdown-part">
+            <div>Meses:</div>
             <span>${months.toString().padStart(2, '0')}</span>
-            <div>Meses</div>
         </div>
         <div class="countdown-part">
+            <div>Días:</div>
             <span>${days.toString().padStart(2, '0')}</span>
-            <div>Días</div>
         </div>
         <div class="countdown-part">
+            <div>Horas:</div>
             <span>${hours.toString().padStart(2, '0')}</span>
-            <div>Horas</div>
         </div>
         <div class="countdown-part">
+            <div>Minutos:</div>
             <span>${minutes.toString().padStart(2, '0')}</span>
-            <div>Minutos</div>
         </div>
         <div class="countdown-part">
+            <div>Segundos:</div>
             <span>${seconds.toString().padStart(2, '0')}</span>
-            <div>Segundos</div>
         </div>
     `;
 
