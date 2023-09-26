@@ -22,6 +22,11 @@ main {
     padding: 1rem; 
 }
 
+.blue-span {
+    color: white;
+    transition: color 0.5s ease;
+}  
+
 /* Estilos para el título "Cuenta regresiva para el 1 de Diciembre" y el contador */
 .countdown h2 {
     text-align: center;
