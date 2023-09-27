@@ -93,7 +93,6 @@ main {
     height: 24rem;
 }
 
-
 .ticket-calendar {
     text-align: center;
 }
@@ -121,6 +120,21 @@ main {
 #ticket-numbers li:hover {
     background-color: #a6c1ee;
     color: white;
+}
+
+#ticket-owner-info {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: rgba(219, 219, 219, 0.25);
+    backdrop-filter: blur(20px);
+}
+
+#ticket-owner-info p {
+    margin: 0;
+    font-weight: bold;
 }
 
 /* Estilos para el indicador "Comprado" */
