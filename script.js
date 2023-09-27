@@ -63,36 +63,32 @@ function generateTicketCalendar() {
     }
 }
 
-// Función para manejar la selección de números de boletos
 function toggleTicketSelection(event) {
     const ticket = event.target;
     const ticketNumber = parseInt(ticket.textContent);
 
-    // Si el número ya está deshabilitado, no hacemos nada
-    if (ticket.disabled) {
-        return;
+    // Desseleccionar cualquier número previamente seleccionado
+    const selectedTicketNumbers = document.querySelectorAll(".selected");
+    for (const selectedTicket of selectedTicketNumbers) {
+        selectedTicket.classList.remove("selected");
     }
+    selectedNumbers.clear(); // Borrar cualquier número previamente seleccionado
 
-    // Toggle (agregar o eliminar) la selección del número
-    if (selectedNumbers.has(ticketNumber)) {
-        selectedNumbers.delete(ticketNumber);
+    // Seleccionar el número actual
+    selectedNumbers.add(ticketNumber);
+    ticket.classList.add("selected");
+
+    // Actualizar el contenido del número de boleto seleccionado y el mensaje
+    const selectedTicketNumber = document.getElementById("selected-ticket-number");
+    const ticketOwnerName = document.getElementById("ticket-owner-name");
+
+    if (clientData[ticketNumber]) {
+        selectedTicketNumber.textContent = ticketNumber;
+        ticketOwnerName.textContent = " comprado por: " + clientData[ticketNumber];
     } else {
-        selectedNumbers.add(ticketNumber);
+        selectedTicketNumber.textContent = ticketNumber;
+        ticketOwnerName.textContent = " está disponible";
     }
-
-    // Agregar o eliminar la clase "selected" para cambiar el color de fondo
-    ticket.classList.toggle("selected");
-
-    // Habilitar el botón "Confirmar"
-    enableConfirmButton();
-
-}
-
-// Función para habilitar el botón "Confirmar"
-function enableConfirmButton() {
-    isButtonEnabled = true;
-    const confirmButton = document.getElementById("confirm-button");
-    confirmButton.style.display = "block";
 }
 
 // Función para leer el contenido del archivo clientes.txt
