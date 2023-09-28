@@ -16,7 +16,6 @@
 23 Dagoberto Ramírez Ramírez
 24 Frank Bernardino
 25 Vicky Bernardino
-200 Dagoberto Ramírez Ramírez
 26 Jashive Jiménez Mariscal
 27 Ixchel Ramírez Villegas
 28 Edith del Pilar Ramírez Ramírez
@@ -24,6 +23,7 @@
 32 Alfonso Ramírez Hernández
 37 Ixchel Ramírez Villegas
 41 Digna Ramírez Centeno
+50 Josué Gamaliel Reyes
 62 Abril Castillejos Ramírez
 63 Edith del Pilar Ramírez Ramírez
 66 Ixchel Ramírez Villegas
@@ -42,6 +42,8 @@
 121 Vicky Bernardino
 127 Alfonso Alberto Ramírez Ramírez
 130 Ixchel Ramírez Villegas
+150 Josué Gamaliel Reyes
 158 Ricardo Daniel López
 177 Rosa Ma. Muñoz
 181 Ixchel Ramírez Villegas
+200 Dagoberto Ramírez Ramírez
