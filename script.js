@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById("generarPDF").addEventListener("click", function () {
     const nombre = document.getElementById("ticket-owner-name").innerText;
+    const numeroBoleto = document.getElementById("selected-ticket-number").innerText; 
 
     // Crear un nuevo documento PDF con formato A6
     const doc = new jsPDF({
@@ -188,6 +189,10 @@ document.getElementById("generarPDF").addEventListener("click", function () {
         format: "a6",
     });
 
+    const image = new Image()
+
+    image.src = "./Ardilla.png"
+    
     // Establecer el color de fondo de la página a "#a6c1ee"
     doc.setFillColor(166, 193, 238); // Código de color "#a6c1ee"
     doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, 'F'); // Llena la página con el color
@@ -199,16 +204,17 @@ document.getElementById("generarPDF").addEventListener("click", function () {
     const x = (pageWidth - textWidth) / 4;
     const y = (pageHeight - doc.internal.getLineHeight()) / 2;
 
-    // Agregar contenido al PDF centrado
+    // Agregar el número de boleto en la parte superior
     doc.setTextColor(0, 0, 0); // Establecer el color del texto a negro
     doc.setFontSize(12);
+    doc.addImage(image, "png", 0, 0, 25,30)
+    doc.text("#"+numeroBoleto, pageWidth / 2, y-20, { align: 'center' }); // Alineado al centro en la parte superior
+
     doc.text("Boleto" + nombre, x + 60, y);
-    doc.setFontSize(12);
     doc.text("Rifa a efectuarse el 1 de Diciembre del 2023", x + 60, y + 20);
 
     // Agregar pie de página en negritas
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(12);
     const footerText = "*Favor de mostrar identificación en caso de ser ganador/ganadora*";
     const footerWidth = doc.getStringUnitWidth(footerText) * doc.internal.getFontSize();
     const footerX = (pageWidth - footerWidth) / 2;
