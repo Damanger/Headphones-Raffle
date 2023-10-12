@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Ardilla.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="./jsPDF-1.3.2/dist/jspdf.min.js"></script>
     <title>Rifa de Audífonos Sony</title>
 </head>
 <body>
@@ -22,8 +24,10 @@
         <div class="ticket-calendar">
             <h2>Números de Boletos</h2>
             <h3>*Costo del boleto 1 x $30 o 2 x $50*</h3>
+            <h4>**Si eres Utemita 1 boleto $20**</h4>
             <div id="ticket-owner-info">
-                <p>#<span id="selected-ticket-number"></span><span id="ticket-owner-name"></span></p>
+                <p>#<span id="selected-ticket-number"></span><span id="ticket-owner-name"></span>
+                <i id="generarPDF" class="fas fa-download download-icon" style="display: none;"></i></p>
             </div>            
             <ul id="ticket-numbers"></ul>                                   
             <div id="comprado-indicator">
@@ -38,8 +42,8 @@
         <footer>
             <h4 style="text-align: center;">¿Interesad@? Contáctame</h4>
             <div class="social-buttons">
-                <a href="https://wa.me/5219514084765?text=Quisiera%20comprar%20un%20boleto%20por%20favor." class="social-button whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/5219514084765" target="_blank" class="social-button whatsapp">
+                    <i class="fab fa-whatsapp"></i>                 
                 </a>
                 <a href="https://www.linkedin.com/in/omar-cruzr97/" target="_blank" class="social-button linkedin">
                     <i class="fab fa-linkedin"></i>
