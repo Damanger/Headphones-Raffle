@@ -81,13 +81,16 @@ function toggleTicketSelection(event) {
     // Actualizar el contenido del número de boleto seleccionado y el mensaje
     const selectedTicketNumber = document.getElementById("selected-ticket-number");
     const ticketOwnerName = document.getElementById("ticket-owner-name");
+    const downloadIcon = document.querySelector(".download-icon");
 
     if (clientData[ticketNumber]) {
         selectedTicketNumber.textContent = ticketNumber;
         ticketOwnerName.textContent = " comprado por: " + clientData[ticketNumber];
+        downloadIcon.style.display = "inline"; // Mostrar el ícono de descarga
     } else {
         selectedTicketNumber.textContent = ticketNumber;
         ticketOwnerName.textContent = " está disponible";
+        downloadIcon.style.display = "none"; // Ocultar el ícono de descarga
     }
 }
 
@@ -173,7 +176,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Llama a la función toggleColor cada 3 segundos
     setInterval(toggleColor, 3000);
-});  
+});
+
+document.getElementById("generarPDF").addEventListener("click", function () {
+    const nombre = document.getElementById("ticket-owner-name").innerText;
+
+    // Crear un nuevo documento PDF con formato A6
+    const doc = new jsPDF({
+        orientation: "landscape",
+        unit: "mm",
+        format: "a6",
+    });
+
+    // Establecer el color de fondo de la página a "#a6c1ee"
+    doc.setFillColor(166, 193, 238); // Código de color "#a6c1ee"
+    doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, 'F'); // Llena la página con el color
+
+    // Calcular el centro de la página
+    const pageWidth = doc.internal.pageSize.width;
+    const pageHeight = doc.internal.pageSize.height;
+    const textWidth = doc.getStringUnitWidth(nombre) * doc.internal.getFontSize();
+    const x = (pageWidth - textWidth) / 2;
+    const y = (pageHeight - doc.internal.getLineHeight()) / 2;
+
+    // Agregar contenido al PDF centrado
+    doc.setTextColor(0, 0, 0); // Establecer el color del texto a negro
+    doc.setFontSize(14);
+    doc.text("Boleto" + nombre, x + 80, y);
+    doc.setFontSize(12);
+    doc.text("Rifa a efectuarse el 1 de Diciembre del 2023", x + 85, y + 20);
+
+    // Agregar pie de página en negritas
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12);
+    const footerText = "*Favor de mostrar identificación en caso de ser ganador/ganadora*";
+    const footerWidth = doc.getStringUnitWidth(footerText) * doc.internal.getFontSize();
+    const footerX = (pageWidth - footerWidth) / 2;
+    const footerY = pageHeight - 15;
+    doc.text(footerText, footerX + 122, footerY);
+
+    // Generar el PDF y descargarlo
+    doc.save("Boleto.pdf");
+});
 
 // Llamar a la función para leer el archivo al cargar la página
 window.onload = function () {
