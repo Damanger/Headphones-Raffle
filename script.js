@@ -196,15 +196,15 @@ document.getElementById("generarPDF").addEventListener("click", function () {
     const pageWidth = doc.internal.pageSize.width;
     const pageHeight = doc.internal.pageSize.height;
     const textWidth = doc.getStringUnitWidth(nombre) * doc.internal.getFontSize();
-    const x = (pageWidth - textWidth) / 2;
+    const x = (pageWidth - textWidth) / 4;
     const y = (pageHeight - doc.internal.getLineHeight()) / 2;
 
     // Agregar contenido al PDF centrado
     doc.setTextColor(0, 0, 0); // Establecer el color del texto a negro
-    doc.setFontSize(14);
-    doc.text("Boleto" + nombre, x + 80, y);
     doc.setFontSize(12);
-    doc.text("Rifa a efectuarse el 1 de Diciembre del 2023", x + 85, y + 20);
+    doc.text("Boleto" + nombre, x + 60, y);
+    doc.setFontSize(12);
+    doc.text("Rifa a efectuarse el 1 de Diciembre del 2023", x + 60, y + 20);
 
     // Agregar pie de página en negritas
     doc.setFont("helvetica", "bold");
