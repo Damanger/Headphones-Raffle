@@ -40,6 +40,7 @@
 80 Tonalli Ramírez Villegas
 86 Soledad Bernardino
 87 Juan Hernández Ramírez
+89 Eduardo Soto
 90 Dayán Zurishadai
 95 Franco Meza
 97 Tere Bernardino
@@ -53,6 +54,7 @@
 125 Tonalli Ramírez Villegas
 127 Alfonso Alberto Ramírez Ramírez
 130 Ixchel Ramírez Villegas
+135 Eduardo Soto
 138 Tonalli Ramírez Villegas
 150 Josué Gamaliel Reyes
 158 Ricardo Daniel López
